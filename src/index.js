@@ -1,29 +1,25 @@
 // PLEASE DON'T change function name
 module.exports = function makeExchange(currency) {
-    var H;
-    var Q; 
-    var D; 
-    var N; 
-    var P;
+    var key, key1,key2,key3,key4,key5;
+   
 
     if (currency>0 && currency<10000)
     {
-        H=Math.floor(currency/50);
+        key1=Math.floor(currency/50);
         
-        Q=Math.floor((currency-(H*50))/25);
+        key2=Math.floor((currency-(key1*50))/25);
         
-        D=Math.floor((currency-(H*50)-(Q*25))/10);
+        key3=Math.floor((currency-(key1*50)-(key2*25))/10);
         
-        N=Math.floor((currency-(H*50)-(Q*25)-(D*10))/5);
+        key4=Math.floor((currency-(key1*50)-(key2*25)-(key3*10))/5);
         
-        P=Math.floor((currency-(H*50)-(Q*25)-(D*10)-(N*5))/1);
-         var Arr={"H":H,"Q":Q, "D":D,"N":N,"P":P}
-         if (Arr.number==0)
-         console.log({}); //Arr.number;
-         return currency=Arr;
-    }
+        key5=Math.floor((currency-(key1*50)-(key2*25)-(key3*10)-(key4*5))/1);
+        var Arr={"H":key1,"Q":key2, "D":key3,"N":key4,"P":key5};
+        Object.keys(Arr).forEach((key) => (Arr[key] == 0) && delete Arr[key]);
+        return Arr;
 
-          
+
+    }
     if (currency<=0) 
     return {};   
     else if (currency>= 10000)
